@@ -1,0 +1,74 @@
+1.
+Herança Múltipla, jasmine;
+Suporta transações longas, ObjectivityDB
+Suporte a ODL, GemStone;
+
+//=======================================
+2.
+Basicamento o conceito de comparação diz 
+que dois objetos são iguais quando possuem o mesmo valor 
+mas não são o mesmo objeto pois possuem diferentes OIDs.
+
+//=======================================
+3.
+BDR é composto por tabelas com nomes unicos,
+onde pode haver relacionamento entre uma ou mais tabelas,
+além disso ha o conceito de chave primaria que é definido pelo administrador
+do banco, dessa forma o BDR é bom para trabalhar com dados simples como numeros ou textos.
+O BDOO é definido por polimorfismo, encapsulamento e herança onde é estruturado
+como um sistema de classes, em BDOO o administrador não define uma chave primaria
+pois ele gera automaticamente uma chave OID.
+
+//=======================================
+4.
+Para que um SGBD seja considerado um SGBDOO é obrigatorio que ele tenha
+as seguintes propriedades.
+Persistencia:salvar objetos depois de executar um processo e eventualmente 
+usa-los em outro;
+Gerencia de armazenamento secundario: clustering de dados, buffering de dados,
+otimização de consultas, seleção de caminho de acesso;
+Concorrencia: multiplo acesso em tempo real;
+Extensibilidade: Estender de modo transparente para o desenvolvedor e para a aplicação 
+os tipos ja definidos;
+Completude Computacional: usando a linguagem do SGBD, manipular qualquer função computavel
+Overriding, Overloading e Late Binding: permitir a alteração da implementação
+da operação e o resultado da alteração associar em apenas um nome.
+O nome das operações deve ser resolvido em tempo de execução;
+Tipos e Classes herdados: deve suportar herança;
+Encapsulamento: armazena os dados e funcionalidades de um objeto, escondendo a implementação
+Identidade dos Objetos: os objetos devem ter um ID unico e independente;
+Objetos Complexos: construir objetos complexos a partir de outros;
+
+Algumas caracteristicas tornam o sistema melhor para trabalhar, contudo não são obrigatorias 
+mas são muito desejadas.
+Herança Multipla: assim como a linguagem OO que esta sendo usada o sgbdoo tambem 
+poderia suportar multiplas heranças;
+Checagem e inferencia de tipos: impedir erro em tempo de execução após passar pelo compilador
+Distribuição: possibilitar a distribuição do banco de dados;
+Design para transação: como o modelo de transação de banco de dados classico não é satisfatorio 
+deve haver um apoio para a transação de designes;
+Controle de versão: permitir controlar versão atravez de um mecanismo;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
