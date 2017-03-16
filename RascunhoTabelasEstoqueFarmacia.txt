@@ -1,0 +1,44 @@
+estoque
+	cd_estoque int notnull (Chave Primaria)
+	desc_estoque varchar(30) notnull
+	sn_ativo varchar1 default S (s/n)
+
+produto
+	cd_produto int notnull (Chave Primaria)
+	desc varchar
+	sn_principal varchar(1) default S (s/n)
+	cd-produto_Kit int pk
+	ativo varchar1 default S (s/n)
+	
+moviment estoque
+	cd_mov_est int notnull <<< id
+	tp_mov_est varchar1 notnull
+	cd_estoque int fk notnull
+	dt_mov_estoq date default (sysdate) notnull
+	
+item_mov_estoq
+	cd_mov_est int pk notnull    <<< (Chave Primaria)
+	cd_lancamento int pk notnull <<< (Chave Primaria)
+	cd_produto int fk
+	qtd_mov int notnull
+	
+fornecedor
+	cd_fornecedor int pk
+	nome varchar(50)
+	desc_cnpj varchar(50)
+	cpf varchar(50)
+	data_cadastro date default (sysdate) notnull
+	sn_ativo varchar(1) default S (s/n)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
