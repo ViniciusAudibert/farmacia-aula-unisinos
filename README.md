@@ -1,2 +1,1 @@
-"# mongodb-aula-unisinos" 
-"# mongodb-aula-unisinos 2" 
+"Banco de dados II - Banco para um sistema de farmacia simples"
