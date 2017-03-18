@@ -6,13 +6,14 @@ PRODUTO
 	
 PRODUTO_MOVIMENTACAO
 	id int PK
-	idProduto int FK
+	idProduto int FK notnull
 	quantidade int notnull
 	dataMovimentacao date default (sysdate) notnull
 	
 PRODUTO_ENTRADA
 	id int PK
-	idProduto int FK
+	idProduto int FK notnull
+	idFornecedor int PK notnull
 	quantidadeEntrada int notnull
 	dataEntrada date default (sysdate) notnull
 	
