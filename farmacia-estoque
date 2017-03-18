@@ -1,0 +1,24 @@
+PRODUTO
+	id int PK
+	descricao varchar(100) UK notnull
+	quantidade int notnull
+	ativo bool notnull
+	
+PRODUTO_MOVIMENTACAO
+	id int PK
+	idProduto int FK
+	quantidade int notnull
+	dataMovimentacao date default (sysdate) notnull
+	
+PRODUTO_ENTRADA
+	id int PK
+	idProduto int FK
+	quantidadeEntrada int notnull
+	dataEntrada date default (sysdate) notnull
+	
+FORNECEDOR
+	id int PK
+	nome varchar(50) notnull
+	endereco varchar(100) notnull
+	cnpj varchar(50) notnull
+	dataCadastro date default (sysdate) notnull
