@@ -12,10 +12,17 @@ produto
 	
 moviment estoque
 	cd_mov_est int notnull <<< id
-	tp_mov_est varchar1 notnull
+	tp_mov_est varchar1 notnull enum {'E','S','C','R'}
 	cd_estoque int fk notnull
 	cd_paciente int fk
 	dt_mov_estoq date default (sysdate) notnull
+	ds_nota_fiscal varchar(9)
+/*
+E = ENTRADA
+S = SAIDA
+C = CONSUMO
+R = RETORNO DE MERCADORIA (DEFEITO)
+*/
 	
 item_mov_estoq
 	cd_mov_est int pk notnull    <<< (Chave Primaria)

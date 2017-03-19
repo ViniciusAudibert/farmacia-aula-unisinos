@@ -6,13 +6,14 @@ PRODUTO
 	
 PRODUTO_MOVIMENTACAO
 	id int PK
-	idProduto int FK
+	idProduto int FK notnull
 	quantidade int notnull
 	dataMovimentacao date default (sysdate) notnull
 	
 PRODUTO_ENTRADA
 	id int PK
-	idProduto int FK
+	idProduto int FK notnull
+	idFornecedor int PK notnull
 	quantidadeEntrada int notnull
 	dataEntrada date default (sysdate) notnull
 	
@@ -20,5 +21,5 @@ FORNECEDOR
 	id int PK
 	nome varchar(50) notnull
 	endereco varchar(100) notnull
-	cnpj varchar(50) notnull
+	cnpj varchar(14) UK notnull
 	dataCadastro date default (sysdate) notnull
