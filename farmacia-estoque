@@ -21,5 +21,5 @@ FORNECEDOR
 	id int PK
 	nome varchar(50) notnull
 	endereco varchar(100) notnull
-	cnpj varchar(50) notnull
+	cnpj varchar(14) UK notnull
 	dataCadastro date default (sysdate) notnull
