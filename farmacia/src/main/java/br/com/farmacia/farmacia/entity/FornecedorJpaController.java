@@ -30,14 +30,18 @@ public class FornecedorJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Fornecedor fornecedor) {
+    public boolean create(Fornecedor fornecedor) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(fornecedor);
             em.getTransaction().commit();
-        } finally {
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }finally {
             if (em != null) {
                 em.close();
             }

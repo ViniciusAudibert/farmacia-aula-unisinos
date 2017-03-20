@@ -11,12 +11,18 @@ import org.hibernate.SessionFactory;
  * @author vini
  */
 public class ConnectionFactory {
+    
+    private EntityManager entityManager;
+    private EntityManagerFactory sessionFactory;
 
-    protected void setUp() throws Exception {
-        EntityManagerFactory sessionFactory;
+    public ConnectionFactory () {
         sessionFactory = Persistence.createEntityManagerFactory("br.com.farmacia_farmacia_jar_1.0-SNAPSHOTPU");
-
-        EntityManager entityManager = sessionFactory.createEntityManager();
+    }
+    
+    protected void setUp() throws Exception {
+        
+        sessionFactory = Persistence.createEntityManagerFactory("br.com.farmacia_farmacia_jar_1.0-SNAPSHOTPU");
+        entityManager = sessionFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(new Produto());
         entityManager.persist(new ProdutoEntrada());
@@ -25,4 +31,13 @@ public class ConnectionFactory {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+    
+    public EntityManagerFactory getSessionFactory(){ 
+        return sessionFactory;
+    }
+    
+    public EntityManager getEntityManager(){
+        return entityManager;
+    }
+    
 }

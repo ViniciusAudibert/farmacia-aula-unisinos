@@ -30,13 +30,17 @@ public class ProdutoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Produto produto) {
+    public boolean create(Produto produto) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(produto);
             em.getTransaction().commit();
+            return true;
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return false;
         } finally {
             if (em != null) {
                 em.close();

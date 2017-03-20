@@ -1,6 +1,7 @@
 package br.com.farmacia.farmacia.entity;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -79,5 +80,35 @@ public class Fornecedor implements Serializable {
 
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || !(o instanceof Fornecedor)) {
+            return false;
+        }  
+        Fornecedor f = (Fornecedor) o;
+        if (this.getId().equals(f.getId())) {
+            if (this.getNomeCompleto().equals(f.getNomeCompleto())) {
+                if (this.getCnpj().equals(f.getCnpj())) {
+                    if (this.getEndereco().equals(f.getEndereco())) {
+                        long d1 = (this.getDataCadastro().getTime()/1000)*1000;
+                        long d2 = (f.getDataCadastro().getTime()/1000)*1000;
+                        if (d1==d2) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
+    @Override
+    public String toString(){
+        return "Fornecedor {ID: " + this.getId() + "; Nome: " + this.getNomeCompleto()
+                + "; CNPJ: " + this.getCnpj() + "; Endereco: " + this.getEndereco()
+                + "; Data cadastro: " + new SimpleDateFormat("dd/MM/yyyy "
+                        + "HH:mm:ss").format(this.getDataCadastro());
     }
 }

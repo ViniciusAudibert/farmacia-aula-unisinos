@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestSuite">
+    <test name="TesteInsercao" preserve-order="true">
+        <classes>
+            <class name="br.com.farmacia.banco.TesteInsercao">
+<!--                <methods>
+                    <include name="testPopularProdutos"></include>
+                    <include name="testPopularFornecedores"></include>
+                    <include name="testPopularProdutoEntradas"></include>
+                    <include name="testPopularProdutoMovimentacoes"></include>
+                </methods>-->
+            </class>
+            <class name="br.com.farmacia.banco.TesteConsulta">
+<!--                <methods>
+                    <include name="testConsultaProdutos"></include>
+                    <include name="testConsultaFornecedores"></include>
+                    <include name="testConsultaProdutoEntradas"></include>
+                    <include name="testConsultaProdutoMovimentacoes"></include>
+                </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -22,10 +22,10 @@ public class Produto implements Serializable {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 100)
-    private String descicao;
+    private String descricao;
 
     @Column(nullable = false)
-    private Integer quatidade;
+    private Integer quantidade;
 
     @Column(nullable = false)
     private Boolean ativo;
@@ -41,20 +41,20 @@ public class Produto implements Serializable {
         this.id = id;
     }
 
-    public String getDescicao() {
-        return descicao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescicao(String descicao) {
-        this.descicao = descicao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public Integer getQuatidade() {
-        return quatidade;
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
-    public void setQuatidade(Integer quatidade) {
-        this.quatidade = quatidade;
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
     public Boolean getAtivo() {
@@ -63,5 +63,31 @@ public class Produto implements Serializable {
 
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
+    }
+    
+    @Override
+    public boolean equals(Object o){
+        if (o == null || !(o instanceof Produto)) {
+            return false;
+        }
+        Produto p = (Produto) o;
+        
+        if (this.getId().equals(p.getId())) {
+            if (this.getDescricao().equals(p.getDescricao())){
+                if (this.getQuantidade().equals(p.getQuantidade())) {
+                    if (this.getAtivo().equals(p.getAtivo())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
+    @Override
+    public String toString(){
+        return "Produto {ID: "+this.getId()+"; Desc: " + this.getDescricao() +
+                "; Quant: " + this.getQuantidade() + "; Ativo: " +
+                this.getAtivo() + ";}";                
     }
 }
