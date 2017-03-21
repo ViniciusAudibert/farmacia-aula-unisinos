@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" vc:minVersion="1.1">
+    <xs:simpleType name="BIGINT">
+        <xs:annotation>
+            <xs:documentation>
+                The "int8" type from the data base was mapped to "xs:integer" XML Schema type.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:integer">
+            <xs:maxInclusive value="9223372036854775807"/>
+            <xs:minInclusive value="-9223372036854775808"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VARCHAR_14">
+        <xs:annotation>
+            <xs:documentation>
+                The "varchar" type from the data base was mapped to "xs:string" XML Schema type.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TIMESTAMP_6">
+        <xs:annotation>
+            <xs:documentation>
+                The "timestamp" type from the data base was mapped to "xs:dateTime" XML Schema type.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:dateTime">
+            <xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}T\p{Nd}{2}:\p{Nd}{2}:\p{Nd}{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VARCHAR_100">
+        <xs:annotation>
+            <xs:documentation>
+                The "varchar" type from the data base was mapped to "xs:string" XML Schema type.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VARCHAR_50">
+        <xs:annotation>
+            <xs:documentation>
+                The "varchar" type from the data base was mapped to "xs:string" XML Schema type.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="INTEGER">
+        <xs:annotation>
+            <xs:documentation>
+                The "int4" type from the data base was mapped to "xs:integer" XML Schema type.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:integer">
+            <xs:maxInclusive value="2147483647"/>
+            <xs:minInclusive value="-2147483648"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="RowType_farmaciaunisinos_public_fornecedor">
+        <xs:sequence>
+            <xs:element name="id" type="BIGINT"/>
+            <xs:element name="cnpj" type="VARCHAR_14"/>
+            <xs:element name="datacadastro" type="TIMESTAMP_6"/>
+            <xs:element name="endereco" type="VARCHAR_100"/>
+            <xs:element name="nomecompleto" type="VARCHAR_50"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TableType_farmaciaunisinos_public_fornecedor">
+        <xs:sequence>
+            <xs:element name="row" type="RowType_farmaciaunisinos_public_fornecedor" minOccurs="0"
+                maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RowType_farmaciaunisinos_public_produto">
+        <xs:sequence>
+            <xs:element name="id" type="BIGINT"/>
+            <xs:element name="ativo" type="BIGINT"/>
+            <xs:element name="descricao" type="VARCHAR_100"/>
+            <xs:element name="quantidade" type="INTEGER"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TableType_farmaciaunisinos_public_produto">
+        <xs:sequence>
+            <xs:element name="row" type="RowType_farmaciaunisinos_public_produto" minOccurs="0"
+                maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RowType_farmaciaunisinos_public_produto_entrada">
+        <xs:sequence>
+            <xs:element name="id" type="BIGINT"/>
+            <xs:element name="dataentrada" type="TIMESTAMP_6"/>
+            <xs:element name="quantidadeentrada" type="INTEGER"/>
+            <xs:element name="fornecedor_id" type="BIGINT"/>
+            <xs:element name="produto_id" type="BIGINT"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TableType_farmaciaunisinos_public_produto_entrada">
+        <xs:sequence>
+            <xs:element name="row" type="RowType_farmaciaunisinos_public_produto_entrada"
+                minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RowType_farmaciaunisinos_public_produto_movimentacao">
+        <xs:sequence>
+            <xs:element name="id" type="BIGINT"/>
+            <xs:element name="datamovimentacao" type="TIMESTAMP_6"/>
+            <xs:element name="quantidademovimentacao" type="INTEGER"/>
+            <xs:element name="produto_id" type="BIGINT"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TableType_farmaciaunisinos_public_produto_movimentacao">
+        <xs:sequence>
+            <xs:element name="row" type="RowType_farmaciaunisinos_public_produto_movimentacao"
+                minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SchemaType_farmaciaunisinos_public">
+        <xs:all>
+            <xs:element name="fornecedor" type="TableType_farmaciaunisinos_public_fornecedor"/>
+            <xs:element name="produto" type="TableType_farmaciaunisinos_public_produto"/>
+            <xs:element name="produto_entrada"
+                type="TableType_farmaciaunisinos_public_produto_entrada"/>
+            <xs:element name="produto_movimentacao"
+                type="TableType_farmaciaunisinos_public_produto_movimentacao"/>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="CatalogType_farmaciaunisinos">
+        <xs:all>
+            <xs:element name="public" type="SchemaType_farmaciaunisinos_public">
+                <xs:key name="fornecedor_fornecedor_pkey">
+                    <xs:selector xpath="fornecedor/row"/>
+                    <xs:field xpath="id"/>
+                </xs:key>
+                <xs:unique name="fornecedor_uk_2q28t52fjfff6v3icsr7owkd0">
+                    <xs:selector xpath="fornecedor/row"/>
+                    <xs:field xpath="cnpj"/>
+                </xs:unique>
+                <xs:keyref name="fornecedor_To_produto_entrada_fk1im1sflhlbas6vcyoef4td0yq"
+                    refer="fornecedor_fornecedor_pkey">
+                    <xs:selector xpath="produto_entrada/row"/>
+                    <xs:field xpath="fornecedor_id"/>
+                </xs:keyref>
+                <xs:key name="produto_produto_pkey">
+                    <xs:selector xpath="produto/row"/>
+                    <xs:field xpath="id"/>
+                </xs:key>
+                <xs:unique name="produto_uk_fj3stjy4qk2w5c5afmo2w41bt">
+                    <xs:selector xpath="produto/row"/>
+                    <xs:field xpath="descricao"/>
+                </xs:unique>
+                <xs:keyref name="produto_To_produto_entrada_fktpuljlctyguhci6o0li172vi1"
+                    refer="produto_produto_pkey">
+                    <xs:selector xpath="produto_entrada/row"/>
+                    <xs:field xpath="produto_id"/>
+                </xs:keyref>
+                <xs:keyref name="produto_To_produto_movimentacao_fkjjvt3o8edwp89b8h07hc5gr1u"
+                    refer="produto_produto_pkey">
+                    <xs:selector xpath="produto_movimentacao/row"/>
+                    <xs:field xpath="produto_id"/>
+                </xs:keyref>
+                <xs:key name="produto_entrada_produto_entrada_pkey">
+                    <xs:selector xpath="produto_entrada/row"/>
+                    <xs:field xpath="id"/>
+                </xs:key>
+                <xs:key name="produto_movimentacao_produto_movimentacao_pkey">
+                    <xs:selector xpath="produto_movimentacao/row"/>
+                    <xs:field xpath="id"/>
+                </xs:key>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    <xs:element name="farmaciaunisinos" type="CatalogType_farmaciaunisinos"/>
+</xs:schema>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<farmaciaunisinos xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="farmaciaXML.xsd">
+    <public>
+        <fornecedor>
+            <row>
+                <id>2</id>
+                <cnpj>12345678910112</cnpj>
+                <datacadastro>1489961267336</datacadastro>
+                <endereco>Av. dos Farmaceuticos, 666. 13000-001. Campinas - SP</endereco>
+                <nomecompleto>Medley Farmacêutica Ltda</nomecompleto>
+            </row>
+            <row>
+                <id>3</id>
+                <cnpj>12131415161718</cnpj>
+                <datacadastro>1489961267336</datacadastro>
+                <endereco>Av. Principal, 200. 07194-380. Guarulhos - SP</endereco>
+                <nomecompleto>Aché Laboratórios Farmacêuticos</nomecompleto>
+            </row>
+        </fornecedor>
+        <produto>
+            <row>
+                <id>1</id>
+                <ativo>true</ativo>
+                <descricao>Paracetamol 500mg c/ 10 cp</descricao>
+                <quantidade>40</quantidade>
+            </row>
+            <row>
+                <id>2</id>
+                <ativo>true</ativo>
+                <descricao>Fenobarbital 50mg c/ 20 cp</descricao>
+                <quantidade>20</quantidade>
+            </row>
+			<row>
+                <id>3</id>
+                <ativo>true</ativo>
+                <descricao>Dorflex c/ 36 cp</descricao>
+                <quantidade>100</quantidade>
+            </row>
+        </produto>
+        <produto_entrada>
+            <row>
+                <id>4</id>
+                <dataentrada>1489961267401</dataentrada>
+                <quantidadeentrada>50</quantidadeentrada>
+                <fornecedor_id>2</fornecedor_id>
+                <produto_id>1</produto_id>
+            </row>
+            <row>
+                <id>5</id>
+                <dataentrada>1489961267401</dataentrada>
+                <quantidadeentrada>20</quantidadeentrada>
+                <fornecedor_id>3</fornecedor_id>
+                <produto_id>2</produto_id>
+            </row>
+			<row>
+                <id>6</id>
+                <dataentrada>1489961267401</dataentrada>
+                <quantidadeentrada>120</quantidadeentrada>
+                <fornecedor_id>3</fornecedor_id>
+                <produto_id>3</produto_id>
+            </row>
+        </produto_entrada>
+        <produto_movimentacao>
+            <row>
+                <id>1</id>
+                <datamovimentacao>1489961267438</datamovimentacao>
+                <quantidademovimentacao>10</quantidademovimentacao>
+                <produto_id>1</produto_id>
+            </row>
+            <row>
+                <id>2</id>
+                <datamovimentacao>1489961267438</datamovimentacao>
+                <quantidademovimentacao>20</quantidademovimentacao>
+                <produto_id>3</produto_id>
+            </row>
+        </produto_movimentacao>
+    </public>
+</farmaciaunisinos>
