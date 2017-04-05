@@ -1,0 +1,17 @@
+[
+{	"id":4,
+	"produto": {"id":1},
+	"fornecedor": {"id":2},
+	"quantidadeEntrada":50,
+	"dataEntrada":1489961267401},
+{	"id":5,
+	"produto": {"id":2},
+	"fornecedor": {"id":3},
+	"quantidadeEntrada":20,
+	"dataEntrada":1489961267401},
+{	"id":6,
+	"produto": {"id":3},
+	"fornecedor": {"id":3},
+	"quantidadeEntrada":120,
+	"dataEntrada":1489961267401}
+]
